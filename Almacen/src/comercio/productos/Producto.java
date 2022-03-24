@@ -1,10 +1,10 @@
 package comercio.productos;
 
-public class Producto implements Comparable<Producto> {
+public abstract class Producto implements Comparable<Producto> {
     private String nombre;
     private int valor;
 
-    public Producto(String nombre, int valor) {
+    protected Producto(String nombre, int valor) {
         this.nombre = nombre;
         this.valor = valor;
     }
@@ -29,5 +29,8 @@ public class Producto implements Comparable<Producto> {
     public int compareTo(Producto o) {
         return this.getValor() - o.getValor();
     }
+
+    @Override
+    public abstract String toString();
     
 }
