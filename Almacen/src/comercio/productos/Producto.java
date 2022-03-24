@@ -1,15 +1,11 @@
 package comercio.productos;
 
-public class Producto {
+public abstract class Producto implements Comparable<Producto> {
     private String nombre;
-    private String cantidad;
-    private String precio;
     private int valor;
 
-    public Producto(String nombre, String cantidad, String precio, int valor) {
+    protected Producto(String nombre, int valor) {
         this.nombre = nombre;
-        this.cantidad = cantidad;
-        this.precio = precio;
         this.valor = valor;
     }
 
@@ -21,22 +17,6 @@ public class Producto {
         this.nombre = nombre;
     }
 
-    public String getCantidad() {
-        return cantidad;
-    }
-
-    public void setCantidad(String cantidad) {
-        this.cantidad = cantidad;
-    }
-
-    public String getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(String precio) {
-        this.precio = precio;
-    }
-
     public int getValor() {
         return valor;
     }
@@ -45,17 +25,12 @@ public class Producto {
         this.valor = valor;
     }
 
-    public String obtenerDetalles() {
-        return "Nombre: " + this.nombre + " /// " + this.cantidad + " /// " + this.precio + this.valor;
+    @Override
+    public int compareTo(Producto o) {
+        return this.getValor() - o.getValor();
     }
 
-    public boolean compareTo(Producto o) {
-        boolean resultado = true;
-        if (this.valor > o.valor) {
-            resultado = true;
-        } else {
-            resultado = false;
-        }
-        return resultado;
-    }
+    @Override
+    public abstract String toString();
+    
 }
