@@ -1,6 +1,6 @@
 package comercio.productos;
 
-public class Producto {
+public class Producto implements Comparable<Producto> {
     private String nombre;
     private String cantidad;
     private String precio;
@@ -49,13 +49,8 @@ public class Producto {
         return "Nombre: " + this.nombre + " /// " + this.cantidad + " /// " + this.precio + this.valor;
     }
 
-    public boolean compareTo(Producto o) {
-        boolean resultado = true;
-        if (this.valor > o.valor) {
-            resultado = true;
-        } else {
-            resultado = false;
-        }
-        return resultado;
+    @Override
+    public int compareTo(Producto o) {
+        return this.getValor() - o.getValor();
     }
 }

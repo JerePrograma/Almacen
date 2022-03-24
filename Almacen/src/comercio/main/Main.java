@@ -24,32 +24,8 @@ public class Main {
             System.out.println(productos1.obtenerDetalles());
         }
         System.out.println("=============================");
-        if (CocaColaZero.compareTo(CocaCola)) {
-            if (CocaColaZero.compareTo(ShampooSedal)) {
-                if (CocaColaZero.compareTo(Frutillas)) {
-                    System.out.println("Producto más caro: " + CocaColaZero.getNombre());
-                }else{
-                    System.out.println("Producto más caro: " + Frutillas.getNombre());
-                }
-            }else{
-                System.out.println("Producto más caro: " + ShampooSedal.getNombre());
-            }
-        }else{
-            System.out.println("Producto más caro: " + CocaCola.getNombre());
-        }
-        if (CocaColaZero.compareTo(CocaCola) == false) {
-            if (CocaColaZero.compareTo(ShampooSedal)== false) {
-                if (CocaColaZero.compareTo(Frutillas)== false) {
-                    System.out.println("Producto más barato: " + CocaColaZero.getNombre());
-                }else{
-                    System.out.println("Producto más barato: " + Frutillas.getNombre());
-                }
-            }else{
-                System.out.println("Producto más barato: " + ShampooSedal.getNombre());
-            }
-        }else{
-            System.out.println("Producto más barato: " + CocaCola.getNombre());
-        }
+        System.out.println("Producto más caro: " + Collections.max(productos).getNombre());
+        System.out.println("Producto más barato: " + Collections.min(productos).getNombre());
     }
 }
 
